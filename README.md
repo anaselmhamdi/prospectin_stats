@@ -14,7 +14,7 @@ Change the `.env` file with your mongoDB credentials.
 
 Deploy with Serverless (with AWS credentials configured):
 
-`cd prospectin_stats`
+`cd prospectin_stats`  
 `serverless deploy`
 
 Open an issue or [contact me](mailto:me@anas.link) if you run into trouble
