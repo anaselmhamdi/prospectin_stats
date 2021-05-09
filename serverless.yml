@@ -1,0 +1,29 @@
+service:
+  name: prospectin-stats
+
+provider:
+  name: aws
+  runtime: python3.8
+  environment:
+    mongoUri: ${ssm:mongoUri~true}
+
+functions:
+  storeStats:
+    handler: index.store_stats
+    timeout: 30
+    events:
+      - http:
+          path: /stats
+          method: POST
+          cors: true
+  getProspectinStats:
+    handler: index.get_stats
+    timeout: 30
+    events:
+      - http:
+          path: /stats
+          method: GET
+          cors: true
+
+plugins:
+  - serverless-python-requirements
